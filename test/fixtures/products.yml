@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  category_id: 1
+  price: 1
+  delivery_date: 2014-06-09 11:56:11
+  description: MyText
+
+two:
+  name: MyString
+  category_id: 1
+  price: 1
+  delivery_date: 2014-06-09 11:56:11
+  description: MyText

@@ -1,0 +1,57 @@
+= form_for @product, html: {class: 'form-horizontal', role: 'form'} do |f|
+  - if @product.errors.any?
+    .alert.alert-danger
+      %button.close{"data-dismiss" => "alert", type: "button"}
+        %i.icon-remove
+      - @product.errors.full_messages.each do |msg|
+        = msg
+        %br/
+  .form-group
+    = f.label :name, class: 'col-sm-3 control-label no-padding-right'
+    .col-sm-9
+      = f.text_field :name, placeholder: "Product Name", id: 'form-field-1', class: 'col-xs-10 col-sm-5'
+  .space-4
+  .form-group
+    = f.label :category_name, class: 'col-sm-3 control-label no-padding-right'
+    .col-sm-9
+      .control-group
+        .radio
+          %label
+            = f.radio_button :category_name, 'Category 1', class: 'ace'
+            %span.lbl Category 1
+          %label
+            = f.radio_button :category_name, 'Category 2', class: 'ace'
+            %span.lbl Category 2
+  .space-4
+  .form-group
+    = f.label :price, class: 'col-sm-3 control-label no-padding-right'
+    .col-sm-9
+      = f.number_field :price, placeholder: "Price", id: 'form-field-1', class: 'col-xs-1'
+
+  .space-4
+  .form-group
+    = f.label :delivery_date, class: 'col-sm-3 control-label no-padding-right'
+    .col-sm-3
+      .input-group
+        = f.text_field :delivery_date, placeholder: 'Delivery Date', class: 'form-control date-picker', id: 'id-date-picker-1'
+        %span.input-group-addon
+          %i.icon-calendar.bigger-110
+  .space-4
+  .form-group
+    = f.label :description, class: 'col-sm-3 control-label no-padding-right'
+    .col-sm-9
+      = f.text_area :description, placeholder: "Description", id: 'form-field-8', class: 'input-xlarge', rows: 5
+  .clearfix.form-actions
+    .col-md-offset-3.col-md-9
+      %button.btn.btn-info{type: "button"}
+        %i.icon-ok.bigger-110
+        Submit
+      \
+      = link_to 'Cancel', products_path, class: 'btn btn-primary btn-grey', title: 'Cancel'
+
+:javascript
+  $(document).ready(function() {
+    $( ".btn-info" ).click(function() {
+    $( ".form-horizontal" ).submit();
+    });
+  });

@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title AceThemeRails4Application
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    = render :partial => 'layouts/navbar'
+    .main-container#main-container
+      .main-container-inner
+        = render :partial => 'layouts/left_side_bar'
+        = yield

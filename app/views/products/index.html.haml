@@ -1,0 +1,75 @@
+.main-content
+  #breadcrumbs.breadcrumbs
+    :javascript
+      try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    %ul.breadcrumb
+      %li
+        %i.icon-home.home-icon
+        %a{href: "#"} Home
+      %li.active Inbox
+    / .breadcrumb
+    #nav-search.nav-search
+      %form.form-search
+        %span.input-icon
+          %input#nav-search-input.nav-search-input{autocomplete: "off", placeholder: "Search ...", type: "text"}/
+          %i.icon-search.nav-search-icon
+    / #nav-search
+  .page-content
+    .page-header
+      %h1
+        Listing Products
+    .row
+      .col-xs-12
+        = link_to 'Add New', new_product_path, class: 'btn btn-sm btn-primary', title: 'Add New'
+        .space-4
+        .table-responsive
+          %table#sample-table-1.table.table-striped.table-bordered.table-hover
+            %thead
+              %tr
+                %th Name
+                %th Category
+                %th Price
+                %th
+                  %i.icon-time.bigger-110.hidden-480
+                  Delivery Date
+                %th
+            %tbody
+              - @products.each do |product|
+                %tr
+                  %td= product.name
+                  %td= product.category_name
+                  %td= product.price
+                  %td= product.delivery_date.strftime('%m/%d/%Y')
+                  %td
+                    .action-buttons
+                      = link_to(product_path(product), class: 'blue', title: 'Edit') do
+                        %i.icon-check.bigger-130
+                      = link_to(edit_product_path(product), class: 'green', title: 'Edit') do
+                        %i.icon-pencil.bigger-130
+                      = link_to(product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'red', title: 'Delete')  do
+                        %i.icon-trash.bigger-130
+
+    / %table
+    /   %thead
+    /     %tr
+    /       %th Name
+    /       %th Category
+    /       %th Price
+    /       %th Delivery date
+    /       %th Description
+    /       %th
+    /       %th
+    /       %th
+    /   %tbody
+    /     - @products.each do |product|
+    /       %tr
+    /         %td= product.name
+    /         %td= product.category_id
+    /         %td= product.price
+    /         %td= product.delivery_date
+    /         %td= product.description
+    /         %td= link_to 'Show', product
+    /         %td= link_to 'Edit', edit_product_path(product)
+    /         %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+    / %br/
+    / = link_to 'New Product', new_product_path

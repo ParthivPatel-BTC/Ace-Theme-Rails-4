@@ -1,0 +1,22 @@
+.main-content
+  #breadcrumbs.breadcrumbs
+    :javascript
+      try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    %ul.breadcrumb
+      %li
+        %i.icon-home.home-icon
+        %a{href: "#"} Product
+      %li.active New
+    / .breadcrumb
+    #nav-search.nav-search
+      %form.form-search
+        %span.input-icon
+          %input#nav-search-input.nav-search-input{autocomplete: "off", placeholder: "Search ...", type: "text"}/
+          %i.icon-search.nav-search-icon
+    / #nav-search
+  .page-content
+    .page-header
+      %h1 New product
+    .row
+      .col-xs-12
+        = render 'form'
