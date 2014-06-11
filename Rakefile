@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TestApplication::Application.load_tasks
+AceThemeRails4Application::Application.load_tasks
