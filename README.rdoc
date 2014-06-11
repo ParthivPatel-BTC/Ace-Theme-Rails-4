@@ -4,24 +4,22 @@ You need to manually find the references to the application name. And you need t
 
 Things you may want to cover:
 
-* Ruby version
+* config/application.rb
 
-* System dependencies
+* config/environment.rb
 
-* Configuration
+* config/environments/development.rb
 
-* Database creation
+* config/environments/production.rb
 
-* Database initialization
+* config/environments/test.rb
 
-* How to run the test suite
+* config/initializers/secret_token.rb
 
-* Services (job queues, cache servers, search engines, etc.)
+* config/initializers/session_store.rb
 
-* Deployment instructions
+* config/routes.rb
 
-* ...
+* config.ru
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* app/views/layouts/application.html.erb
